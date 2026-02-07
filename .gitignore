@@ -1,6 +1,119 @@
-venv/
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
-# --- local virtual environments ---
+# --- Virtual Environments ---
+venv/
 .venv/
 venv-gpu/
-# --- end local virtual environments ---
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# --- IDEs ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# --- Model Weights & Checkpoints ---
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.tflite
+*.engine
+*.mlmodel
+runs/
+weights/
+checkpoints/
+*.pkl
+*.pickle
+
+# --- Training Data & Datasets ---
+data/
+datasets/
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.gif
+*.tif
+*.tiff
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
+
+# --- Experiment Outputs ---
+experiments/**/runs/
+experiments/**/outputs/
+experiments/**/*.pt
+experiments/**/*.pth
+results/
+outputs/
+logs/
+*.log
+
+# --- Cache & Temp ---
+.cache/
+*.cache
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+*.cover
+*.tmp
+*.temp
+temp/
+tmp/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+*.ipynb
+
+# --- Documentation Build ---
+site/
+docs/_build/
+
+# --- Local Config ---
+.env
+.env.local
+*.local.yaml
+*.local.json
+
+# --- Backup Files ---
+*.bak
+*.backup
+*.orig
+
+# --- Torch-Pruning Reference (cloned for study) ---
+Torch-Pruning/
