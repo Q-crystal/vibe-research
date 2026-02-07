@@ -1,0 +1,5 @@
+# Baseline config for YOLOv8 backbone pruning (Milestone-1 will consume this)
+method: depgraph_l2
+ratio: 0.2
+scope: backbone
+notes: "Milestone-0 only provides DepGraph pruning kernel scaffold"

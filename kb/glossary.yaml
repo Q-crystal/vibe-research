@@ -10,3 +10,9 @@ gac:
   default_api: "vibe_research.recipes.gac_refine"
   related_docs:
     - "docs/recipes/gac.md"
+
+depgraph:
+  meaning: "Dependency graph based structured pruning (Torch-Pruning style DepGraph)."
+  default_api: "vibe_research.pruning.build_depgraph_pruner"
+  related_docs:
+    - "docs/recipes/torch_pruning_depgraph.md"

@@ -1,0 +1,8 @@
+numpy
+scipy
+
+[dev]
+pytest>=7
+ruff>=0.4
+pre-commit
+mkdocs

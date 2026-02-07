@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+src/vibe_research/__init__.py
+src/vibe_research/_version.py
+src/vibe_research/cli.py
+src/vibe_research.egg-info/PKG-INFO
+src/vibe_research.egg-info/SOURCES.txt
+src/vibe_research.egg-info/dependency_links.txt
+src/vibe_research.egg-info/entry_points.txt
+src/vibe_research.egg-info/requires.txt
+src/vibe_research.egg-info/top_level.txt
+src/vibe_research/pruning/__init__.py
+src/vibe_research/pruning/depgraph.py
+tests/test_smoke.py
