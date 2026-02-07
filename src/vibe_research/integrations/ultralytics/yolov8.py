@@ -11,6 +11,7 @@ LayerSelector = Callable[[str, nn.Module], bool]
 def build_yolov8_from_yaml(model_yaml: str) -> nn.Module:
     """Build a YOLOv8 model from YAML without requiring weights."""
     from ultralytics import YOLO  # optional dependency
+
     y = YOLO(model_yaml)
     return y.model  # BaseModel (nn.Module)
 
@@ -28,10 +29,12 @@ _TOP_RE = re.compile(r"^model\.(\d+)(?:\.|$)")
 
 def make_yolov8_backbone_selector(backbone_len: int) -> LayerSelector:
     """Select modules whose top-level index is within backbone (i < backbone_len)."""
+
     def _sel(name: str, module: nn.Module) -> bool:
         m = _TOP_RE.match(name)
         if not m:
             return False
         idx = int(m.group(1))
         return idx < backbone_len
+
     return _sel

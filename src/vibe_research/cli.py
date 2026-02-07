@@ -8,6 +8,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--version", action="version", version="%(prog)s 0.1.0")
     return p
 
+
 def main(args: list[str] | None = None) -> int:
     parser = build_parser()
     parser.parse_args(args)
