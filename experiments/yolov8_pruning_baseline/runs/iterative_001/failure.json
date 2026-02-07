@@ -2,5 +2,5 @@
   "step": 0,
   "status": "failed",
   "params_before": 3157200,
-  "error": "RuntimeError('CUDA error: device-side assert triggered\\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\\n')"
+  "error": "RuntimeError('Input type (torch.cuda.FloatTensor) and weight type (torch.FloatTensor) should be the same')"
 }

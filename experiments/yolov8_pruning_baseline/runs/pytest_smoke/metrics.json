@@ -10,9 +10,11 @@
   "records": [
     {
       "step": 0,
-      "status": "failed",
+      "status": "ok",
       "params_before": 3157200,
-      "error": "IndexError('index 384 is out of bounds for dimension 0 with size 256')"
+      "latency_ms": 8.043791051022708,
+      "params_after": 3079332,
+      "params_reduction_pct": 2.466362599771954
     }
   ]
 }

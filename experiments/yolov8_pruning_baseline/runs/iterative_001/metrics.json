@@ -10,9 +10,43 @@
   "records": [
     {
       "step": 0,
-      "status": "failed",
+      "status": "ok",
       "params_before": 3157200,
-      "error": "RuntimeError('CUDA error: device-side assert triggered\\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\\n')"
+      "latency_ms": 5.672235107421875,
+      "params_after": 2509528,
+      "params_reduction_pct": 20.51412644115038
+    },
+    {
+      "step": 1,
+      "status": "ok",
+      "params_before": 2509528,
+      "latency_ms": 5.303086471557617,
+      "params_after": 2011830,
+      "params_reduction_pct": 36.27803116685671
+    },
+    {
+      "step": 2,
+      "status": "ok",
+      "params_before": 2011830,
+      "latency_ms": 5.132743835449219,
+      "params_after": 1632690,
+      "params_reduction_pct": 48.28677309007981
+    },
+    {
+      "step": 3,
+      "status": "ok",
+      "params_before": 1632690,
+      "latency_ms": 5.115084838867188,
+      "params_after": 1343897,
+      "params_reduction_pct": 57.43389712403395
+    },
+    {
+      "step": 4,
+      "status": "ok",
+      "params_before": 1343897,
+      "latency_ms": 5.187737655639649,
+      "params_after": 1117965,
+      "params_reduction_pct": 64.58998479665526
     }
   ]
 }
