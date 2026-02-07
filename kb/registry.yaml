@@ -17,3 +17,12 @@ yolov8_pruning_baseline:
     - "docs/recipes/torch_pruning_depgraph.md"
     - "docs/cards/2026-02-07_yolov8_pruning_baseline.md"
     - "docs/adr/0002-pruning-baseline-depgraph.md"
+
+yolov8_ultralytics_smoke:
+  artifacts:
+    - "src/vibe_research/integrations/ultralytics/yolov8.py"
+    - "src/vibe_research/recipes/yolov8_prune_backbone.py"
+    - "tests/integrations/test_yolov8_prune_smoke.py"
+    - "configs/pruning/yolov8_ultralytics_smoke.yaml"
+    - "docs/recipes/yolov8_prune_backbone.md"
+    - "docs/adr/0003-yolov8-ultralytics-integration.md"

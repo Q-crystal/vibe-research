@@ -83,8 +83,9 @@ class DepGraphPruner:
 
         for conv, idxs in per_layer.items():
             idxs = sorted(set(idxs))
-            plan = dg.get_pruning_plan(conv, tp.prune_conv_out_channels, idxs=idxs)
-            plan.exec()
+            group = dg.get_pruning_group(conv, tp.prune_conv_out_channels, idxs=idxs)
+            if dg.check_pruning_group(group):
+                group.prune()
 
         return self.model
 

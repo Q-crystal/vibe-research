@@ -1,0 +1,5 @@
+# Smoke config for YOLOv8 backbone pruning via Ultralytics integration
+model_yaml: yolov8n.yaml
+ratio: 0.005
+imgsz: 128
+device: cpu

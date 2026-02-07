@@ -9,6 +9,9 @@ src/vibe_research.egg-info/dependency_links.txt
 src/vibe_research.egg-info/entry_points.txt
 src/vibe_research.egg-info/requires.txt
 src/vibe_research.egg-info/top_level.txt
+src/vibe_research/integrations/ultralytics/__init__.py
+src/vibe_research/integrations/ultralytics/yolov8.py
 src/vibe_research/pruning/__init__.py
 src/vibe_research/pruning/depgraph.py
+src/vibe_research/recipes/yolov8_prune_backbone.py
 tests/test_smoke.py

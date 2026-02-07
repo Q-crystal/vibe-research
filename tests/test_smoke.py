@@ -1,5 +1,6 @@
 import vibe_research as vr
 
+
 def test_version():
     assert vr.version == "0.1.0"
 

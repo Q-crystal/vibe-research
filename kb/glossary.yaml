@@ -16,3 +16,9 @@ depgraph:
   default_api: "vibe_research.pruning.build_depgraph_pruner"
   related_docs:
     - "docs/recipes/torch_pruning_depgraph.md"
+
+ultralytics_yolov8:
+  meaning: "Ultralytics YOLOv8 model built from YAML via ultralytics.YOLO"
+  default_api: "vibe_research.integrations.ultralytics.build_yolov8_from_yaml"
+  related_docs:
+    - "docs/recipes/yolov8_prune_backbone.md"
