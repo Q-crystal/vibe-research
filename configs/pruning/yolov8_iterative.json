@@ -1,0 +1,8 @@
+{
+  "model_yaml": "yolov8n.yaml",
+  "steps": 5,
+  "total_ch_sparsity": 0.5,
+  "imgsz": 320,
+  "device": "cuda:0",
+  "out_dir": "experiments/yolov8_pruning_baseline/runs/iterative_001"
+}

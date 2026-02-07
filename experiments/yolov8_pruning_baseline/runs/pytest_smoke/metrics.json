@@ -1,0 +1,18 @@
+{
+  "cfg": {
+    "model_yaml": "yolov8n.yaml",
+    "steps": 1,
+    "total_ch_sparsity": 0.01,
+    "imgsz": 128,
+    "device": "cpu",
+    "out_dir": "experiments/yolov8_pruning_baseline/runs/pytest_smoke"
+  },
+  "records": [
+    {
+      "step": 0,
+      "status": "failed",
+      "params_before": 3157200,
+      "error": "IndexError('index 384 is out of bounds for dimension 0 with size 256')"
+    }
+  ]
+}
