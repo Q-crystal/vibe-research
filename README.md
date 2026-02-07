@@ -1,1 +1,323 @@
 # vibe-research
+
+Research-to-repo helper toolkit for translating research ideas into runnable code + tests.
+
+## 项目概述
+
+本项目采用 **docs-as-code** 方法论，将知识管理、架构决策和实验记录与代码版本控制统一起来。
+
+### 核心特性
+
+- 📚 **知识库 (Knowledge Base)**: 结构化存储术语、配方和决策
+- 📝 **文档即代码**: Markdown + YAML 管理所有文档
+- 🧪 **可复现实验**: 标准化的实验记录格式
+- 🔧 **开发工具链**: Ruff + pytest + pre-commit + CI
+
+## 快速开始
+
+### 环境要求
+
+- Python >= 3.9
+- Git
+- (可选) CUDA 用于 GPU 加速
+
+### 安装
+
+```bash
+# 克隆仓库
+git clone git@github.com:Q-crystal/vibe-research.git
+cd vibe-research
+
+# 创建虚拟环境
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# 或 venv\Scripts\activate  # Windows
+
+# 安装开发依赖
+pip install -e ".[dev]"
+
+# 安装 pre-commit 钩子
+pre-commit install
+```
+
+### 验证安装
+
+```bash
+# 运行测试
+pytest -q
+
+# 代码检查
+ruff check .
+ruff format --check .
+
+# CLI 测试
+vibe-research --help
+```
+
+## 项目结构
+
+```
+vibe-research/
+├── src/vibe_research/          # Python 包主目录
+│   ├── __init__.py
+│   ├── _version.py             # 版本信息
+│   ├── cli.py                  # 命令行接口
+│   ├── math/                   # 数学工具
+│   └── recipes/                # 算法实现
+├── tests/                      # 测试目录
+│   └── test_smoke.py          # 冒烟测试
+├── configs/                    # 配置文件
+├── experiments/                # 实验记录
+├── docs/                       # 文档
+│   ├── index.md               # 文档首页
+│   ├── cards/                 # Translation Cards
+│   ├── recipes/               # Keyword Recipes
+│   ├── adr/                   # 架构决策记录
+│   └── experiments/           # 实验指南
+├── kb/                        # 知识库
+│   ├── glossary.yaml          # 术语表
+│   └── registry.yaml          # 功能注册表
+├── .github/workflows/         # CI/CD
+├── pyproject.toml            # Python 项目配置
+├── .pre-commit-config.yaml   # 代码提交前检查
+└── mkdocs.yml               # 文档网站配置
+```
+
+## 知识库 (Knowledge Base)
+
+### 术语表 (Glossary)
+
+位于 `kb/glossary.yaml`，定义项目中使用的关键术语：
+
+```yaml
+chanvese:
+  meaning: "Chan–Vese active contour (region-based segmentation) refine method"
+  default_api: "vibe_research.recipes.chanvese_refine"
+  related_docs:
+    - "docs/recipes/chanvese.md"
+```
+
+### 功能注册表 (Registry)
+
+位于 `kb/registry.yaml`，追踪功能与代码的对应关系：
+
+```yaml
+repo_bootstrap:
+  artifacts:
+    - "docs/index.md"
+    - "kb/glossary.yaml"
+    - "pyproject.toml"
+```
+
+## 开发工作流
+
+### 1. 创建新功能
+
+```bash
+# 创建功能分支
+git checkout -b feat/my-feature
+
+# 实现代码
+# ...
+
+# 运行测试
+pytest -q
+
+# 代码格式化
+ruff check --fix .
+ruff format .
+
+# 提交
+git add -A
+git commit -m "feat: add my feature"
+
+# 推送到远程
+git push origin feat/my-feature
+```
+
+### 2. 添加文档
+
+```bash
+# 创建新的 Recipe
+cat > docs/recipes/my-method.md << 'EOF'
+# My Method
+
+## 输入
+- ...
+
+## 输出
+- ...
+
+## 用法
+```python
+from vibe_research.recipes import my_method
+result = my_method(input_data)
+```
+EOF
+
+# 更新术语表
+cat >> kb/glossary.yaml << 'EOF'
+my_method:
+  meaning: "Description of my method"
+  default_api: "vibe_research.recipes.my_method"
+  related_docs:
+    - "docs/recipes/my-method.md"
+EOF
+```
+
+### 3. 记录架构决策
+
+```bash
+# 创建 ADR
+cat > docs/adr/0002-my-decision.md << 'EOF'
+# ADR 0002: My Decision
+
+## Status
+Proposed
+
+## Context
+What is the issue that we're seeing?
+
+## Decision
+What is the change that we're proposing?
+
+## Consequences
+What becomes easier or more difficult to do?
+EOF
+```
+
+## 本地与云端同步
+
+### 首次设置
+
+```bash
+# 配置 Git 用户信息
+git config user.name "Your Name"
+git config user.email "your.email@example.com"
+
+# 验证 SSH 连接
+ssh -T git@github.com
+```
+
+### 日常同步流程
+
+```bash
+# 1. 拉取最新代码
+git fetch --all --prune
+git pull origin main
+
+# 2. 创建功能分支
+git checkout -b feat/my-feature
+
+# 3. 开发工作
+# ... 修改代码 ...
+
+# 4. 提交更改
+git add -A
+git commit -m "feat: description"
+
+# 5. 推送到云端
+git push origin feat/my-feature
+
+# 6. 创建 Pull Request (在 GitHub 上)
+# 7. 合并后更新本地
+git checkout main
+git pull origin main
+```
+
+### 解决冲突
+
+```bash
+# 如果 pull 时有冲突
+git status  # 查看冲突文件
+# 手动编辑解决冲突
+git add -A
+git commit -m "resolve conflicts"
+```
+
+## 工具链
+
+### Ruff (代码检查与格式化)
+
+```bash
+# 检查代码
+ruff check .
+
+# 自动修复
+ruff check --fix .
+
+# 格式化
+ruff format .
+```
+
+### pytest (测试)
+
+```bash
+# 运行所有测试
+pytest
+
+# 详细输出
+pytest -v
+
+# 快速模式
+pytest -q
+
+# 特定测试
+pytest tests/test_smoke.py::test_version
+```
+
+### pre-commit (提交前检查)
+
+```bash
+# 安装钩子
+pre-commit install
+
+# 手动运行所有检查
+pre-commit run -a
+
+# 跳过检查 (不推荐)
+git commit -m "message" --no-verify
+```
+
+### MkDocs (文档网站)
+
+```bash
+# 本地预览
+mkdocs serve
+
+# 构建
+mkdocs build
+
+# 部署到 GitHub Pages
+mkdocs gh-deploy
+```
+
+## 贡献指南
+
+1. **Fork** 仓库
+2. 创建 **Feature Branch** (`git checkout -b feat/amazing-feature`)
+3. **Commit** 更改 (`git commit -m 'feat: add amazing feature'`)
+4. **Push** 到分支 (`git push origin feat/amazing-feature`)
+5. 创建 **Pull Request**
+
+### Commit 规范
+
+- `feat:` 新功能
+- `fix:` 修复 bug
+- `docs:` 文档更新
+- `test:` 测试相关
+- `refactor:` 重构
+- `chore:` 构建/工具链
+
+## 许可证
+
+[MIT License](LICENSE)
+
+## 联系方式
+
+- GitHub: [Q-crystal/vibe-research](https://github.com/Q-crystal/vibe-research)
+- Issues: [提交 Issue](https://github.com/Q-crystal/vibe-research/issues)
+
+---
+
+**Happy Researching! 🚀**
