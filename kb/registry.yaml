@@ -1,0 +1,10 @@
+# feature -> artifacts (src/tests/docs/configs/adr paths)
+repo_bootstrap:
+  artifacts:
+    - "docs/index.md"
+    - "kb/glossary.yaml"
+    - "kb/registry.yaml"
+    - "pyproject.toml"
+    - ".pre-commit-config.yaml"
+    - "mkdocs.yml"
+    - ".github/workflows/ci.yml"

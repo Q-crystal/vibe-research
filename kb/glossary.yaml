@@ -1,0 +1,12 @@
+# keyword -> meaning / default_api / related_docs
+chanvese:
+  meaning: "Chan–Vese active contour (region-based segmentation) refine method"
+  default_api: "vibe_research.recipes.chanvese_refine"
+  related_docs:
+    - "docs/recipes/chanvese.md"
+
+gac:
+  meaning: "Geodesic Active Contour (edge-based) refine method"
+  default_api: "vibe_research.recipes.gac_refine"
+  related_docs:
+    - "docs/recipes/gac.md"

@@ -1,0 +1,15 @@
+site_name: vibe-research Docs
+site_url: https://q-crystal.github.io/vibe-research/
+repo_url: https://github.com/Q-crystal/vibe-research
+
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - ADRs: adr/
+  - Recipes: recipes/
+  - Experiments: experiments/
+
+plugins:
+  - search
